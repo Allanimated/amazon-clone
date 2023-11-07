@@ -1,0 +1,43 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 20px;
+  width: 100%;
+  max-height: 400px;
+  min-width: 100px;
+  z-index: 1;
+  background-color: white;
+  border: 1px groove gainsboro;
+  border-radius: 5px;
+}
+
+.category > img {
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.category > h2 {
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-weight: 700;
+  padding-bottom: 4px;
+  color: #0f1111 !important;
+  font-size: 13px !important;
+  line-height: 27.3px !important;
+  padding: 0;
+  margin: 0;
+  max-height: 54px;
+}
+
+.category-link > a {
+  text-decoration: none;
+  color: greenyellow;
+  font-size: 13px !important;
+  line-height: 19px !important;
+}

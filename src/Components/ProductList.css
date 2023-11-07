@@ -1,0 +1,14 @@
+.products {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  max-width: 1500px;
+}
+
+.product-row {
+  display: block;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
