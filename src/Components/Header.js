@@ -22,16 +22,14 @@ function Header() {
       </div>
       <div className="header-nav">
         <div className="header-link">
-          <span className="header-linkTopLine">Hello</span>
-          <span className="header-linkBottomLine">Sign In</span>
+          <Link to="/login">
+            <span className="header-linkTopLine">Hello, sign in</span>
+            <span className="header-linkBottomLine">Accoun & Lists</span>
+          </Link>
         </div>
         <div className="header-link">
           <span className="header-linkTopLine">Returns</span>
           <span className="header-linkBottomLine">& Oders</span>
-        </div>
-        <div className="header-link">
-          <span className="header-linkTopLine">Your</span>
-          <span className="header-linkBottomLine">Prime</span>
         </div>
         <div className="header-basket">
           <Link to="/checkout">
