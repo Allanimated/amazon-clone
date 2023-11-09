@@ -48,6 +48,14 @@
   margin-right: 10px;
 }
 
+.header-link > a {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
 .header-linkTopLine {
   font-size: 10px;
 }

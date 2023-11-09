@@ -10,17 +10,15 @@
   min-width: 100px;
   z-index: 1;
   background-color: white;
-  border: 1px groove gainsboro;
-  border-radius: 5px;
+  border: 1px solid lightgray;
 }
 
-.category > img {
+.category > a > img {
   max-height: 200px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
   margin: auto;
-  border-radius: 4px;
 }
 
 .category > h2 {
