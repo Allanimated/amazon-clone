@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.css";
 
-function Product({ product }) {
+function Product({ product, removeFromCart, addToCart, value }) {
+  //display rating logic
   const ratings = [];
   for (let index = 1; index < product.rating; index++) {
     ratings.push(<p>⭐</p>);
   }
+
+  const [buttonValue, setButtonValue] = useState("Add to Cart");
+
+  function handleClick(e) {
+    if (addToCart) {
+      addToCart(product);
+      setButtonValue("Added to Cart");
+    } else {
+      removeFromCart(product);
+    }
+  }
+
   return (
     <div className="product">
       <img src={product.images[1]} alt="" />
@@ -17,7 +30,7 @@ function Product({ product }) {
           <strong>{product.price}</strong>
         </p>
         <div className="product-rating">{ratings}</div>
-        <button>Add to Cart</button>
+        <button onClick={handleClick}>{value ? value : buttonValue}</button>
       </div>
     </div>
   );
