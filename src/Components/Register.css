@@ -1,0 +1,105 @@
+.register {
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.register-container {
+  width: auto;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding: 15px;
+  align-items: flex-start;
+}
+.register-container > h1 {
+  font-family: "Amazon Ember", Arial, sans-serif;
+  margin-bottom: 8px !important;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+  padding-bottom: 4px;
+}
+
+.register-form {
+  display: block;
+  max-width: 250px;
+}
+
+.register-form > p {
+  width: 100%;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+  margin-top: 10px !important;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  color: #111;
+}
+
+.register-form > span {
+  font-size: 10px !important;
+  line-height: 2.9 !important;
+  margin-top: 2px !important;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  color: #111;
+}
+
+.register-form > input {
+  background-color: #fff;
+  height: 20px;
+  padding: 3px 7px;
+  line-height: normal;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 230px;
+}
+
+.register-form > input[type="password"] {
+  margin-bottom: 0;
+}
+
+.register-form > hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 0.8px groove lightgray;
+}
+
+.register-form > h5 {
+  display: block;
+  padding-left: 2px;
+  padding-bottom: 1px;
+  font-weight: 700;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 19px;
+  color: #111;
+}
+
+.register-form > input.formButton {
+  color: #0f1111;
+  background-color: #ff9900;
+  margin-left: 9px;
+  height: 30px;
+  border-style: none;
+  border-radius: 5px;
+  height: 31px;
+  padding: 3px 7px;
+  line-height: normal;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
