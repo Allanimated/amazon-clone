@@ -24,7 +24,7 @@ function Header() {
         <div className="header-link">
           <Link to="/login">
             <span className="header-linkTopLine">Hello, sign in</span>
-            <span className="header-linkBottomLine">Accoun & Lists</span>
+            <span className="header-linkBottomLine">Account & Lists</span>
           </Link>
         </div>
         <div className="header-link">
