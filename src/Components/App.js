@@ -5,6 +5,7 @@ import ProductList from "./ProductList";
 import { Routes, Route } from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
