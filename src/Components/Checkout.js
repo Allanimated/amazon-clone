@@ -8,10 +8,13 @@ function Checkout() {
   const { cartItems, setCartItems } = useContext(ProductContext);
   //handle remove from cart request
   function removeFromCart(product) {
-    const updatedCartItems = cartItems.filter(
-      (productInCart) => productInCart.title !== product.title
-    );
-    setCartItems(updatedCartItems);
+    //remove items using their indices
+    const index = cartItems.findIndex((cartItem) => cartItem.id === product.id);
+    const updatedCartItems = [...cartItems];
+    if (index >= 0) {
+      updatedCartItems.splice(index, 1);
+      setCartItems(updatedCartItems);
+    }
   }
   //transform product objects into component markup
   const cart = cartItems.map((product) => (
