@@ -79,3 +79,31 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.search-results {
+  max-width: 820px;
+  width: 100%;
+  max-height: 200px;
+  height: fit-content;
+  border: 1px solid;
+  display: block;
+  margin-left: 139px;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  margin-top: 48px;
+  background-color: #fff;
+  overflow: hidden;
+  overflow-y: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-left: 5px;
+}
+
+.search-results::-webkit-scrollbar {
+  display: none;
+}
+
+.search-results > p > strong {
+  padding-left: 15px;
+}
