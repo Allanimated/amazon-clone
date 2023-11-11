@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import Register from "./Register";
+import SearchResults from "./SearchResults";
 
 function App() {
   return (
@@ -38,6 +39,15 @@ function App() {
             <>
               <Header />
               <Checkout />
+            </>
+          }
+        />
+        <Route
+          path="/search/:id"
+          element={
+            <>
+              <Header />
+              <SearchResults />
             </>
           }
         />

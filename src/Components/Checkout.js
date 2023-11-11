@@ -18,9 +18,8 @@ function Checkout() {
   }
   //transform product objects into component markup
   const cart = cartItems.map((product) => (
-    <div className="grid-item">
+    <div className="grid-item" key={product.id}>
       <Product
-        key={product.id}
         product={product}
         removeFromCart={removeFromCart}
         value={"Remove from Cart"}

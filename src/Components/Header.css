@@ -104,6 +104,13 @@
   display: none;
 }
 
-.search-results > p > strong {
+.search-results > p > a {
   padding-left: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.search-results > p:hover {
+  background-color: lightgray;
+  padding: 2px;
 }

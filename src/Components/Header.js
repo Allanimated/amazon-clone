@@ -19,15 +19,17 @@ function Header() {
         setProducts(d.products);
       });
   }, []);
-
+  //filter data based on search input
   const filter = products.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
   );
   //update search results container
   const results = filter.map((result) => (
-    <p>
+    <p key={result.title}>
       <TrendingUpIcon />
-      <strong>{result.title}</strong>
+      <Link to={`/search/${result.id}`}>
+        <strong onClick={(e) => setSearch("")}>{result.title}</strong>
+      </Link>
     </p>
   ));
   //dynamically show results
