@@ -30,7 +30,7 @@ function Register() {
   const registerUser = async (e) => {
     e.preventDefault();
     if (formData.password1 !== formData.password2) {
-      return alert("Your passwords do not match. Try again");
+      return setMessage("Your passwords do not match. Try again");
     }
     try {
       await createUserWithEmailAndPassword(
