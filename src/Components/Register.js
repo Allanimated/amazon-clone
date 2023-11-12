@@ -2,6 +2,9 @@ import React from "react";
 import "./Register.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -10,6 +13,9 @@ function Register() {
     password1: "",
     password2: "",
   });
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   function handleFormData(e) {
     const key = e.target.id;
@@ -21,9 +27,23 @@ function Register() {
     setFormData(user);
   }
 
-  function registerUser(e) {
+  const registerUser = async (e) => {
     e.preventDefault();
-  }
+    if (formData.password1 !== formData.password2) {
+      return alert("Your passwords do not match. Try again");
+    }
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password2
+      );
+      // User registered successfully navigate them to home page
+      navigate("/");
+    } catch (err) {
+      setMessage(err.message);
+    }
+  };
   return (
     <div className="register">
       <Link to="/">
@@ -34,6 +54,11 @@ function Register() {
         />
       </Link>
       <div className="register-container">
+        {message && (
+          <p style={{ color: "red", fontSize: "12px", width: "200px" }}>
+            {message}
+          </p>
+        )}
         <h1>Create account</h1>
         <form className="register-form" onSubmit={registerUser}>
           <h5>Your name</h5>

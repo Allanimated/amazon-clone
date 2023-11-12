@@ -3,13 +3,25 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  function signIn(e) {
+
+  const signIn = async (e) => {
     e.preventDefault();
-  }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // User logged in successfully
+      navigate("/");
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
   return (
     <div className="login">
       <Link to="/">
@@ -22,6 +34,11 @@ function Login() {
       <div className="login-container">
         <h1>Sign in</h1>
         <form className="login-form" onSubmit={signIn}>
+          {message && (
+            <p style={{ color: "red", fontSize: "12px", width: "200px" }}>
+              {message}
+            </p>
+          )}
           <h5>Email or mobile phone number </h5>
           <input
             type="email"
