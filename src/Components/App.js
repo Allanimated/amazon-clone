@@ -7,8 +7,21 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import Register from "./Register";
 import SearchResults from "./SearchResults";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase"; // Import your Firebase configuration
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+  //set user on initial render
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  }, []);
+
   return (
     <div>
       <Routes>
@@ -17,7 +30,7 @@ function App() {
           path="/"
           element={
             <>
-              <Header />
+              <Header user={user} setUser={setUser} />
               <Home />
             </>
           }
@@ -27,7 +40,7 @@ function App() {
           path="/:category"
           element={
             <>
-              <Header />
+              <Header user={user} setUser={setUser} />
               <ProductList />
             </>
           }
@@ -37,7 +50,7 @@ function App() {
           path="/checkout"
           element={
             <>
-              <Header />
+              <Header user={user} setUser={setUser} />
               <Checkout />
             </>
           }
@@ -46,7 +59,7 @@ function App() {
           path="/search/:id"
           element={
             <>
-              <Header />
+              <Header user={user} setUser={setUser} />
               <SearchResults />
             </>
           }

@@ -5,8 +5,10 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../Context/ProductData";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
-function Header() {
+function Header({ user, setUser }) {
   const { cartItems } = useContext(ProductContext);
   //search state
   const [search, setSearch] = useState("");
@@ -37,6 +39,17 @@ function Header() {
     <div className="search-results">{results}</div>
   ) : null;
 
+  //handle logout request
+
+  const handleUser = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <>
       <div className="header">
@@ -57,12 +70,19 @@ function Header() {
           <SearchIcon className="header-searchIcon" />
         </div>
         <div className="header-nav">
-          <div className="header-link">
-            <Link to="/login">
-              <span className="header-linkTopLine">Hello, sign in</span>
-              <span className="header-linkBottomLine">Account & Lists</span>
-            </Link>
-          </div>
+          <Link to={!user && "/login"} style={{ textDecoration: "none" }}>
+            <div className="header-link" onClick={handleUser}>
+              <span className="header-linkTopLine">{`Hello, ${
+                user ? "sign out" : "sign in"
+              }`}</span>
+              <span className="header-linkBottomLine">
+                {user
+                  ? user.email.replace("@gmail.com", "")
+                  : "Accounts & List"}
+              </span>
+            </div>
+          </Link>
+
           <div className="header-link">
             <span className="header-linkTopLine">Returns</span>
             <span className="header-linkBottomLine">& Oders</span>
