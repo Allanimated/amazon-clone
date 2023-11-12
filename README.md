@@ -18,7 +18,7 @@ This project is an Amazon clone built using React, a popular JavaScript library 
 2. It has a register page where new users can register new accounts
 3. It utilizes an API to retrieve and display product data
 4. Users can add and remove items from their cart
-5. users can search for items and add them to their carts
+5. Users can search for items and add them to their carts
 
 # Getting Started
 
