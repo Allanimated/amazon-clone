@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ],
+  "install": {
+    "include": ["**/package.json"],
+    "commands": {
+      "postinstall": "npm install react-scripts@latest"
+    }
+  }
+}
